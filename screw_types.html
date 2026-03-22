@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top 40 Screw Head Types — Illustrated Study Guide</title>
+<link rel="icon" type="image/x-icon" href="https://commons.wikimedia.org/wiki/Special:FilePath/Screw_Head_-_LocTec.svg">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2333;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --accent: #58a6ff;
+    --accent2: #f78166;
+    --accent3: #3fb950;
+    --accent4: #d2a8ff;
+    --highlight: #f0883e;
+    --red: #ff7b72;
+    --yellow: #e3b341;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 0;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #0d1117 0%, #161b40 40%, #1a1040 70%, #0d1117 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(88,166,255,0.06) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(247,129,102,0.04) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .hero h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2.4em;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent4) 50%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .hero p {
+    color: var(--text-muted);
+    font-size: 1.05em;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .hero .badge {
+    display: inline-block;
+    background: rgba(88,166,255,0.12);
+    border: 1px solid rgba(88,166,255,0.25);
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 16px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 30px;
+    margin-bottom: 40px;
+  }
+  .toc h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+  .toc-grid {
+	display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+  }
+  .toc a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.88em;
+    padding: 4px 0;
+    transition: color 0.2s;
+  }
+  .toc a:hover { color: var(--accent); }
+  .toc a .num { color: var(--accent2); font-family: 'JetBrains Mono', monospace; font-weight: 700; }
+
+  /* Category sections */
+  .category {
+    margin-bottom: 50px;
+  }
+  .cat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+  }
+  .cat-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75em;
+    color: var(--bg);
+    background: var(--accent2);
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+  }
+  .cat-header h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.15em;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+
+  /* Screw cards */
+  .screw-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(540px, 1fr));
+    gap: 12px;
+  }
+  @media (max-width: 600px) {
+    .screw-grid { grid-template-columns: 1fr; }
+  }
+
+  .screw-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 14px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .screw-card:hover {
+    border-color: rgba(88,166,255,0.35);
+    background: var(--surface2);
+  }
+
+  .screw-img {
+    width: 68px;
+    height: 68px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .screw-img img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+  }
+  .screw-img .fallback {
+    font-size: 0.6em;
+    color: #999;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 4px;
+  }
+
+  .screw-info { min-width: 0; }
+  .screw-title {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .screw-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75em;
+    color: var(--accent2);
+    font-weight: 700;
+    background: rgba(247,129,102,0.1);
+    padding: 1px 7px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .screw-name {
+    font-weight: 700;
+    font-size: 0.95em;
+    color: var(--text);
+  }
+
+  .screw-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 16px;
+    font-size: 0.82em;
+  }
+  .screw-meta dt {
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .screw-meta dd {
+    color: var(--text);
+    grid-column: 1 / -1;
+    margin-bottom: 4px;
+    padding-left: 0;
+  }
+  .screw-meta .label {
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7em;
+    padding: 1px 7px;
+    border-radius: 4px;
+    margin-right: 4px;
+    margin-top: 2px;
+  }
+  .tag-mat { background: rgba(63,185,80,0.12); color: var(--accent3); border: 1px solid rgba(63,185,80,0.2); }
+  .tag-size { background: rgba(210,168,255,0.12); color: var(--accent4); border: 1px solid rgba(210,168,255,0.2); }
+
+
+
+  /* Tips */
+  .tips {
+    background: rgba(240,136,62,0.08);
+    border: 1px solid rgba(240,136,62,0.25);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-top: 40px;
+  }
+  .tips h3 {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--highlight);
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+  }
+  .tips ul {
+    list-style: none;
+    padding: 0;
+  }
+  .tips li {
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+    color: var(--text);
+    font-size: 0.9em;
+  }
+  .tips li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--highlight);
+    font-weight: bold;
+  }
+  .tips strong { color: var(--accent); }
+
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-size: 0.8em;
+    border-top: 1px solid var(--border);
+    margin-top: 50px;
+  }
+  .footer a { color: var(--accent); text-decoration: none; }
+
+  /* Photo-type images: same frame, zoomed in + cropped */
+  .screw-card[data-photo="true"] .screw-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+
+  /* Clickable image hint */
+  .screw-img { cursor: pointer; transition: box-shadow 0.15s, transform 0.12s; }
+  .screw-img:hover { box-shadow: 0 0 0 2px var(--accent); transform: scale(1.04); }
+  .screw-img:active { transform: scale(0.97); }
+
+  /* Tooltip overlay */
+  .tooltip-overlay {
+    position: fixed; inset: 0; z-index: 999;
+    background: rgba(0,0,0,0.45);
+    animation: fadeIn 0.12s ease-out;
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* Tooltip popup */
+  .img-tooltip {
+    position: fixed; z-index: 1000;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 16px 64px rgba(0,0,0,0.6);
+    width: 320px; max-height: 85vh;
+    overflow-y: auto;
+    animation: popIn 0.18s ease-out;
+  }
+  @keyframes popIn {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  }
+  .img-tooltip .tt-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 12px;
+  }
+  .img-tooltip .tt-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700; font-size: 0.88em;
+    color: var(--text);
+  }
+  .img-tooltip .tt-close {
+    background: none; border: none;
+    color: var(--text-muted); font-size: 1.4em;
+    cursor: pointer; line-height: 1; padding: 0 0 0 8px;
+  }
+  .img-tooltip .tt-close:hover { color: var(--red); }
+
+  /* Enlarged preview image */
+  .img-tooltip .tt-preview {
+    width: 100%;
+    max-height: 260px;
+    object-fit: contain;
+    background: #f0f0f0;
+    border-radius: 8px;
+    margin-bottom: 14px;
+  }
+  .tt-google {
+    display: block; text-align: center;
+    background: var(--accent); color: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75em; font-weight: 700;
+    padding: 9px 12px; border-radius: 7px;
+    text-decoration: none; transition: background 0.15s;
+  }
+  .tt-google:hover { background: var(--accent4); }
+
+  @media print {
+    body { background: #fff; color: #111; font-size: 11px; }
+    .hero { background: #f5f5f5; border-bottom: 2px solid #333; }
+    .hero h1 { background: none; -webkit-text-fill-color: #111; color: #111; }
+    .screw-card { border-color: #ccc; background: #fafafa; }
+    .screw-img { background: #fff; border: 1px solid #ddd; }
+    .cat-header { border-color: #333; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>TOP 40 SCREW HEAD TYPES</h1>
+  <p>Illustrated Study Guide for Electronics & Cybersecurity — Visual ID · Uses · Characteristics · Materials · Sizing</p>
+  <span class="badge">Images from Wikimedia Commons — requires internet</span>
+</div>
+
+<div class="container" id="content"></div>
+
+<script>
+// Wikimedia Commons image base URL
+const W = "https://commons.wikimedia.org/wiki/Special:FilePath/";
+const SZ = "?width=80";
+
+// Map screw # → Wikimedia filename (drive recess diagrams + photos)
+const imgMap = {
+  // Standard drives
+  1:  "Screw_Head_-_Phillips.svg",
+  2:  "Screw_Head_-_Slotted.svg",
+  3:  "Screw_Head_-_Pozidrive.svg",
+  4:  "Screw_Head_-_Torx.svg",
+  5:  "Screw_Head_-_Torx_Plus.svg",
+  6:  "Screw_Head_-_Torx_Tamperproof.svg",
+  7:  "Screw_Head_-_Hex_Socket.svg",
+  8:  "Screw_Head_-_Hex_Socket_Tamperproof.svg",
+  9:  "Screw_Head_-_Robertson.svg",
+  10: "Screw Head - Phillips Combo.svg",
+  // Tamper-resistant
+  11: "Screw_Head_-_Tri-Wing.svg",
+  12: "Screw_Head_-_Tri-point.svg",
+  13: "Screw_Head_-_Pentalobular.svg",
+  14: "Screw_Head_-_Spanner.svg",
+  15: "Screw Head - One-way Clutch.svg",
+  16: "Screw Head - Torq-set.svg",
+  17: "Screw Head - Spline.svg",
+  18: "Screw_Head_-_Bristol.svg",
+  19: "Screw_Head_-_TP3.svg",
+  20: "Screw_Head_-_LocTec.svg",
+  // Specialty
+  21: "Screw Head - Thumbscrew.svg",
+  22: "Screw Head - Knurled Phillips.svg",
+  23: "Assembled D-sub (subD) Shield connectors.jpg",
+  24: "Hex Spacers and Standoffs.png",
+  25: "M3 x 12 mm Nylon Screw Cross Head.jpg",
+  26: "Screw_Head_-_Knurled.svg",
+  27: "Set screw.svg",
+  28: "FrictionStudWeld.jpg",
+  29: "Barrel nut, bolt.svg",
+  30: "Hanger bolt.jpg",
+  // Drive variants
+  31: "Screw_Head_-_JIS_B_1012.svg",
+  32: "Screw_Head_-_Frearson.svg",
+  33: "Screw Head - Supadrive.svg",
+  34: "Screw_Head_-_Polydrive.svg",
+  35: "Screw Head - Spanner.svg",
+  36: "Screw_Head_-_Triple_Square.svg",
+  37: "Screw_Head_-_Mortorq.svg",
+  38: "Screw Head - ASTER Recess.svg",
+  39: "Screw_Head_-_Phillips_II.svg",
+  40: "Screw_Head_-_Hex_Socket-Phillips.svg",
+};
+
+const categories = [
+  { name: "STANDARD DRIVE TYPES", items: [
+    {n:1, name:"Phillips (#)", look:"Cross-shaped recess with tapered flutes", use:"Consumer electronics, laptops, phones, PCBs", key:"Cam-out at high torque; 4 tapered slots forming a cross", mat:"Steel, stainless, zinc", size:"#000–#2"},
+    {n:2, name:"Flat / Slotted", look:"Single straight slot across head", use:"Terminals, faceplates, legacy electronics", key:"Single slot; easy to strip; requires aligned driver", mat:"Steel, brass, stainless", size:"1.5–8mm widths"},
+    {n:3, name:"Pozidrive (PZ)", look:"Cross + 4 tick marks at 45°", use:"European electronics, rack hardware", key:"Extra ribs reduce cam-out; NOT Phillips-compatible", mat:"Steel, stainless, zinc", size:"PZ0–PZ3"},
+    {n:4, name:"Torx (T / TX)", look:"6-point star pattern", use:"HDDs, SSDs, laptops, game consoles", key:"Resists cam-out; high torque; star-shaped recess", mat:"Steel, stainless, alloy", size:"T5–T20 common"},
+    {n:5, name:"Torx Plus (IP)", look:"Rounded 6-point star", use:"High-end electronics, automotive modules", key:"Improved torque over standard Torx; rounded lobes", mat:"Alloy steel, stainless", size:"IP7–IP40"},
+    {n:6, name:"Torx Security (TR)", look:"6-point star + center pin", use:"Game consoles, routers, proprietary devices", key:"Center post blocks standard Torx bits; tamper-resistant", mat:"Steel, stainless", size:"TR7–TR40"},
+    {n:7, name:"Hex / Allen", look:"Hexagonal recess", use:"Server racks, enclosures, standoffs", key:"Six flat sides; high torque; common in standoffs", mat:"Steel, stainless, alloy", size:"0.7–10mm"},
+    {n:8, name:"Hex Security", look:"Hex recess + center pin", use:"Tamper-resistant enclosures, kiosks", key:"Pin blocks standard hex keys", mat:"Steel, stainless", size:"Same as hex + pin"},
+    {n:9, name:"Robertson (Square)", look:"Square recess", use:"Electrical panels, Canadian hardware", key:"Self-centering; very low cam-out; one-handed use", mat:"Steel, stainless, brass", size:"#0–#3"},
+    {n:10, name:"Combo Phillips/Slot", look:"Cross + slot in one recess", use:"Outlets, switches, terminal blocks", key:"Accepts both flathead and Phillips drivers", mat:"Steel, zinc-plated", size:"Standard Phillips sizes"},
+  ]},
+  { name: "TAMPER-RESISTANT / SECURITY", items: [
+    {n:11, name:"Tri-Wing", look:"Three-slotted Y with offset", use:"Nintendo consoles, Apple, some phones", key:"Slots offset from center; requires special bit", mat:"Steel, stainless", size:"TW1–TW5"},
+    {n:12, name:"Tri-Point (Y-Type)", look:"Symmetrical Y shape", use:"Nintendo Switch, older MacBooks, some Samsung", key:"Symmetrical Y; different from Tri-Wing", mat:"Steel, stainless", size:"Y000–Y1"},
+    {n:13, name:"Pentalobe", look:"5-pointed flower/star", use:"iPhones, MacBooks, Apple Watch", key:"Apple proprietary; 5 rounded petals; very small", mat:"Stainless steel", size:"P2 (iPhone), P5 (MacBook)"},
+    {n:14, name:"Spanner / Snake-Eye", look:"Two small holes on flat head", use:"Elevators, transit hardware, public fixtures", key:"Fork-shaped bit required; simple tamper deterrent", mat:"Stainless, steel", size:"4–12mm span"},
+    {n:15, name:"One-Way (Clutch)", look:"Slot allows only clockwise turning", use:"Security cameras, license plates", key:"Install w/ flathead but cannot remove easily", mat:"Steel, stainless", size:"Standard slot widths"},
+    {n:16, name:"Torq-Set", look:"Offset cross pattern", use:"Military/aerospace electronics, avionics", key:"Cross is offset from center; prevents standard Phillips", mat:"Alloy steel", size:"#6, #8, #10"},
+    {n:17, name:"Spline Drive", look:"12-point star/flower", use:"Automotive ECUs, aerospace", key:"High torque; 12 evenly-spaced teeth", mat:"Alloy steel, stainless", size:"M4–M18"},
+    {n:18, name:"Bristol Spline", look:"4 or 6 fluted spline", use:"Avionics, military, precision instruments", key:"Square-ended flutes; low cam-out; precision use", mat:"Alloy steel, stainless", size:"2–14"},
+    {n:19, name:"TP3 (Tri-groove)", look:"Triangular + 3 radial grooves", use:"Transit systems, public infrastructure", key:"Almost no aftermarket drivers available", mat:"Hardened steel", size:"Proprietary"},
+    {n:20, name:"Mag-Lok", look:"Smooth head, magnetic key", use:"High-security enclosures, casino equipment", key:"No visible recess; requires magnetic driver", mat:"Stainless, hardened steel", size:"Proprietary"},
+  ]},
+
+  { name: "SPECIALTY & CONNECTOR TYPES", items: [
+    {n:21, name:"Thumbscrew", look:"Knurled/winged head for hand turning", use:"PC case panels, D-sub connectors, test equipment", key:"No tool needed; knurled grip", mat:"Steel, stainless, plastic", size:"M3, #6-32"},
+    {n:22, name:"Captive / Spring-Loaded", look:"Stays in panel when loosened", use:"Server rack panels, hot-swap bays, PDUs", key:"Spring retains screw; prevents loss", mat:"Steel, stainless", size:"M3, #6-32"},
+    {n:23, name:"Jack Screw (D-Sub)", look:"Hex standoff for D-sub connectors", use:"DB9, DB15, DB25 serial/VGA/parallel ports", key:"Locks connectors; integral hex post + UNC thread", mat:"Zinc, nickel-plated steel", size:"#4-40 UNC"},
+    {n:24, name:"PCB Standoff (Hex)", look:"Hexagonal spacer, male-female threads", use:"Motherboard mounting, PCB stacking", key:"Creates gap between board and surface", mat:"Brass, nylon, aluminum", size:"M2, M2.5, M3"},
+    {n:25, name:"Nylon Screw", look:"Fully non-conductive screw", use:"ESD-sensitive assembly, RF shielding gaps", key:"Prevents ground loops; electrical isolation", mat:"Nylon 6/6, PEEK, PTFE", size:"M2–M6"},
+    {n:26, name:"Knurled Head Screw", look:"Cylindrical head with diamond knurl", use:"Lab equipment, test fixtures, adjustment screws", key:"Finger-grip; no tool needed; fine adjustment", mat:"Steel, stainless, brass", size:"M2–M6"},
+    {n:27, name:"Set Screw (Grub)", look:"Headless, fully threaded", use:"Heatsink clamps, knob retention, shaft collars", key:"Sits below surface; hex socket or slot drive", mat:"Alloy steel, stainless", size:"M2–M10"},
+    {n:28, name:"Weld Screw / Stud", look:"Projection on base for spot welding", use:"Sheet metal electronics chassis", key:"Permanently attached to chassis by welding", mat:"Mild steel", size:"M3–M8"},
+    {n:29, name:"Sex Bolt / Barrel Nut", look:"Male + female screw-together pair", use:"Enclosure panels, signage, binder posts", key:"Connects two panels; smooth finish on both sides", mat:"Steel, stainless, brass", size:"M4–M8"},
+    {n:30, name:"Hanger Bolt", look:"Wood thread one end, machine thread other", use:"Mounting electronics to wooden surfaces", key:"Dual-purpose: grips wood and accepts nut", mat:"Steel, zinc-plated", size:"M4–M8"},
+  ]},
+  { name: "DRIVE-SPECIFIC VARIANTS", items: [
+    {n:31, name:"JIS (Japanese Industrial)", look:"Looks like Phillips but dot-marked", use:"Japanese electronics, cameras, Honda/Toyota ECUs", key:"Dot on head; steeper flute angle; Phillips will cam-out", mat:"Steel, stainless", size:"JIS #0–#3"},
+    {n:32, name:"Frearson / Reed & Prince", look:"Pointed-bottom cross recess", use:"Marine electronics, nautical instruments", key:"Sharper cross than Phillips; one driver fits all sizes", mat:"Stainless, bronze", size:"#0–#4"},
+    {n:33, name:"Supadriv", look:"Improved Pozidrive variant", use:"European appliances, electrical panels", key:"Nearly identical to PZ; better off-angle driving; same drivers", mat:"Steel, stainless", size:"SD1–SD3"},
+    {n:34, name:"Polydrive", look:"Rounded star, more lobes than Torx", use:"Automotive electronics, European vehicles", key:"Combines Torx contact with Allen simplicity", mat:"Alloy steel", size:"Various"},
+    {n:35, name:"Line Head (2-Hole)", look:"Two small holes (not spanner style)", use:"Japanese appliances, vending machines", key:"Japanese standard; distinct from spanner; precise pin alignment", mat:"Stainless steel", size:"M3–M6"},
+    {n:36, name:"Triple Square / XZN", look:"12-point star (Torx × 2)", use:"VW/BMW/Audi electronics, European automotive", key:"High torque; 12-point spline; not a Torx variant", mat:"Alloy steel", size:"M5–M18"},
+    {n:37, name:"Mortorq", look:"Spiral/wing recess pattern", use:"Aerospace electronics, defense", key:"Reduced radial force; high engagement", mat:"Alloy steel, titanium", size:"Proprietary"},
+    {n:38, name:"ASTER Recess", look:"Modified Torx with rounded lobes", use:"Aerospace avionics, high-reliability electronics", key:"Better fatigue life than Torx; reusable", mat:"Alloy, stainless", size:"Proprietary"},
+    {n:39, name:"Phillips II (ACR)", look:"Phillips with ribs for bit retention", use:"Power tool assembly, factory automation", key:"Anti cam-out ribs hold bit in place", mat:"Steel, stainless", size:"#1–#3"},
+    {n:40, name:"Combo Hex-Phillips", look:"Hex socket + Phillips in one recess", use:"HVAC controls, utility meters", key:"Dual-drive flexibility; either tool works", mat:"Steel, zinc", size:"M3–M6"},
+  ]},
+];
+
+// Render
+const container = document.getElementById('content');
+let html = '';
+
+// TOC
+html += '<div class="toc"><h2>Table of Contents</h2><div class="toc-grid">';
+categories.forEach((cat, i) => {
+  const f = cat.items[0].n, l = cat.items[cat.items.length-1].n;
+  html += `<a href="#cat${i}"><span class="num">${i+1}.</span> ${cat.name} (#${f}–#${l})</a>`;
+});
+html += '</div></div>';
+
+// Categories
+categories.forEach((cat, ci) => {
+  html += `<div class="category" id="cat${ci}">`;
+  html += `<div class="cat-header"><span class="cat-num">${ci+1}</span><h2>${cat.name}</h2></div>`;
+  html += '<div class="screw-grid">';
+  cat.items.forEach(s => {
+    const imgFile = imgMap[s.n] || "Screw_Head_-_Phillips.svg";
+    const isPhoto = [23,24,25,28,30].includes(s.n);
+    const imgUrl = W + imgFile + (isPhoto ? "?width=120" : SZ);
+    const eName = s.name.replace(/'/g, "\\'");
+    html += `
+      <div class="screw-card"${isPhoto ? ' data-photo="true"' : ''}>
+        <div class="screw-img" onclick="showTooltip('${eName}')">
+          <img src="${imgUrl}" alt="${s.name}" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+          <div class="fallback" style="display:none">No img</div>
+        </div>
+        <div class="screw-info">
+          <div class="screw-title">
+            <span class="screw-num">#${s.n}</span>
+            <span class="screw-name">${s.name}</span>
+          </div>
+          <div class="screw-meta">
+            <div><span class="label">LOOK</span> ${s.look}</div>
+            <div><span class="label">USE</span> ${s.use}</div>
+            <div><span class="label">KEY</span> ${s.key}</div>
+            <div>
+              <span class="tag tag-mat">${s.mat}</span>
+              <span class="tag tag-size">${s.size}</span>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  });
+  html += '</div></div>';
+});
+
+// Tips
+html += `
+<div class="tips">
+  <h3>Key Tips for Cybersecurity Hardware Analysis</h3>
+  <ul>
+    <li><strong>Security screws</strong> (Torx Security, Pentalobe, Tri-Wing, Tri-Point, Spanner) deter unauthorized physical access. Identifying them is the first step in hardware pentesting.</li>
+    <li><strong>JIS vs Phillips</strong>: Japanese electronics use JIS screws — look for a dot on the head. Using a Phillips driver will cause cam-out and stripping.</li>
+    <li><strong>Thread-locking</strong>: Blue = removable (Loctite 242). Red = permanent (Loctite 271). Heat above 250°C breaks red thread-lock.</li>
+    <li><strong>M.2 SSD screws</strong> (M2×3mm) are the #1 most commonly lost screw in PC building — always keep spares.</li>
+    <li><strong>Nylon/PEEK screws</strong> provide electrical isolation — used where ESD protection is critical.</li>
+    <li><strong>Wrong standoffs</strong> under a motherboard can short PCB traces and prevent POST.</li>
+  </ul>
+</div>`;
+
+// Footer
+html += `
+<div class="footer">
+  <p>Top 40 Screw Head Types — Illustrated Study Guide for Electronics & Cybersecurity</p>
+  <p>Drive recess diagrams from <a href="https://commons.wikimedia.org/wiki/Category:Drawings_of_screw_heads" target="_blank">Wikimedia Commons</a> (CC0/CC-BY-SA/Public Domain)</p>
+</div>`;
+
+container.innerHTML = html;
+
+function closeTooltip() {
+  document.querySelectorAll('.tooltip-overlay, .img-tooltip').forEach(el => el.remove());
+}
+
+function showTooltip(name) {
+  closeTooltip();
+
+  // Find the clicked card's image src and get a larger version
+  const cards = document.querySelectorAll('.screw-card');
+  let imgSrc = '';
+  cards.forEach(card => {
+    if (card.querySelector('.screw-name')?.textContent === name) {
+      const img = card.querySelector('.screw-img img');
+      if (img) imgSrc = img.src.replace(/\?width=\d+/, '?width=400');
+    }
+  });
+
+  const googleUrl = 'https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(name + ' screw head');
+
+  const overlay = document.createElement('div');
+  overlay.className = 'tooltip-overlay';
+  overlay.onclick = closeTooltip;
+
+  const tip = document.createElement('div');
+  tip.className = 'img-tooltip';
+  tip.innerHTML = `
+    <div class="tt-header">
+      <span class="tt-name">${name}</span>
+      <button class="tt-close" onclick="closeTooltip()">&times;</button>
+    </div>
+    <img class="tt-preview" src="${imgSrc}" alt="${name}" onerror="this.style.display='none'">
+    <a class="tt-google" href="${googleUrl}" target="_blank" rel="noopener">
+      Search Google Images &rarr;
+    </a>
+  `;
+  document.body.appendChild(overlay);
+  document.body.appendChild(tip);
+}
+</script>
+</body>
+</html>
